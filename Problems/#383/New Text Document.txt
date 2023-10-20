@@ -1,0 +1,15 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        List<Character> hs=new ArrayList<>();
+        for(int i=0; i<magazine.length(); i++) hs.add(magazine.charAt(i));
+        int num=0;
+        for(int i=0; i<ransomNote.length(); i++){
+            Character ch=ransomNote.charAt(i);
+            if(hs.contains(ch)){
+                hs.remove(ch);
+                num++;
+            }
+        }
+        return  num==ransomNote.length();
+    }
+}
