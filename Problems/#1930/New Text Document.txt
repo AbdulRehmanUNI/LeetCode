@@ -1,0 +1,32 @@
+class Solution {
+    public int countPalindromicSubsequence(String s) {
+        if(s.length()<3) return 0;
+        HashSet<String> hs=new HashSet<>();
+        int ans=0;
+        for(int i=0; i<s.length(); i++){
+            String temp="";
+            for(int j=i; j<s.length(); j++){
+                String test=temp+s.charAt(j)
+                String test1="";
+                if(test.length()==3 && isPalindrome(test)){
+                    
+                }
+
+                if(test.length()==3){
+                    if(isPalindrome(test)){
+                    if(!hs.contains(test)){
+                        temp=test;
+                        hs.add(temp);
+                        ans++;
+                    }
+                }
+                }
+            }
+        } 
+        return ans;
+    }
+
+    private boolean isPalindrome(String s){
+        return (s.equals(new StringBuilder(s).reverse().toString()));
+    }
+}
