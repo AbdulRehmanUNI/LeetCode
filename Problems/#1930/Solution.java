@@ -1,3 +1,23 @@
+//more optimised by DylanSmith
+// class Solution {
+//     public String findDifferentBinaryString(String[] nums) {
+//         HashSet<Integer> set = new HashSet<>();
+//         for (String s : nums) {
+//             set.add(Integer.parseInt(s, 2));
+//         }
+//         for (int i = 0; i <= nums.length; i++) {
+//             if (!set.contains(i)) {
+//                 String res = Integer.toBinaryString(i);
+//                 while (res.length() < nums.length) {
+//                     res = "0" + res;
+//                 }
+//                 return res;
+//             }
+//         }
+//         return "";
+//     }
+// }
+
 class Solution {
     public int countPalindromicSubsequence(String s) {
         int res = 0;
