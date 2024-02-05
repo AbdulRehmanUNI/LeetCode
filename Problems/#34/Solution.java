@@ -38,3 +38,31 @@ class Solution {
         return new int[]{first, last};
     }
 }
+
+
+//-------------- revision -----------------------
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int firstIndex = findFirst(nums, target);
+        if (firstIndex == -1) {
+            return new int[]{-1, -1};
+        }
+
+        int lastIndex = firstIndex;
+        while (lastIndex < nums.length - 1 && nums[lastIndex + 1] == target) {
+            lastIndex++;
+        }
+
+        return new int[]{firstIndex, lastIndex};
+    }
+
+    public int findFirst(int[] nums, int target) {
+        int start = 0, end = nums.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (nums[mid] >= target) end = mid - 1;
+            else start = mid + 1;
+        }
+        return (start < nums.length && nums[start] == target) ? start : -1;
+    }
+}
