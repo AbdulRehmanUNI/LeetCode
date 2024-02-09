@@ -14,3 +14,17 @@ class Solution {
         return -1; // Return -1 if no key with value 1 is found
     }
 }
+
+// ---------------- revision-------------
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        HashMap<Integer, Integer> freqMap=new HashMap<>();
+        for(int i: nums) freqMap.put(i, freqMap.getOrDefault(i,0)+1);
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet())
+            if(entry.getValue()==1) return entry.getKey();
+        return-1;    
+
+        
+    }
+}
