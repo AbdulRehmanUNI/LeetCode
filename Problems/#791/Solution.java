@@ -10,6 +10,7 @@ class Solution {
             if(ans.indexOf(c)<0) remaining+=c;
         }
         return ans+remaining;
+            
         
     }
 }
