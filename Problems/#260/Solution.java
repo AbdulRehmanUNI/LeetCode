@@ -1,5 +1,25 @@
 class Solution {
     public int[] singleNumber(int[] nums) {
+        int x_or= 0;
+        for(int n: nums) x_or^=n;
+
+        int a=0, b=0;
+
+        int dif_bit=1; // 0000000000000.....0001
+
+        while(((x_or>>dif_bit)&1) !=1 ) dif_bit++;
+
+        for(int n: nums){
+            if(((n>>dif_bit)&1) ==1) a^=n;
+            else b^=n;
+        }
+        return new int[]{a,b};
+    }
+} // best solution
+
+
+class Solution {
+    public int[] singleNumber(int[] nums) {
         HashMap<Integer,Integer> hm=new HashMap<>();
 
         for(int i=0; i<nums.length; i++){
