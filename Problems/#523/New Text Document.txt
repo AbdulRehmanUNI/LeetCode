@@ -1,0 +1,17 @@
+class Solution {
+    public boolean checkSubarraySum(int[] nums, int k) {
+        HashSet<Integer> seen = new HashSet<>();
+        int prev=0, running =0;
+
+        for(int num: nums){
+            running+=num;
+            running%=k;
+
+            if(seen.contains(running))
+                return true;
+            seen.add(prev);
+            prev= running;
+        }
+        return false;
+    }
+}
